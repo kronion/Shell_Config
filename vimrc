@@ -27,4 +27,5 @@ set background=dark "syntax highlighting chooses colors for dark backgrounds"
 let g:solarized_termcolors=256 "do I still need this?"
 
 "nerdtree"
-map <C-n> :NERDTreeToggle<CR> "map nerdtree to cntrl n"
+"map nerdtree to cntrl n
+map <C-n> :NERDTreeToggle<CR> 
