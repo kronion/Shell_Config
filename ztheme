@@ -11,5 +11,10 @@ function prompt_char {
     git branch >/dev/null 2>/dev/null && echo '± ' && return
     hg root >/dev/null 2>/dev/null && echo '☿ ' && return
 }
+function virtualenv {
+  if test -n "$VIRTUAL_ENV" ; then
+    echo '蛇 '
+  fi
+}
 PROMPT='%(!.%{$fg_bold[red]%}.%{$fg_bold[white]%})%n%{$reset_color%}@%{$fg_bold[white]%}%m%{$reset_color%} ➤  %(5L.%{$fg[red]%}.%(3L.%{$fg[yellow]%}.%{$fg[white]%}))LVL $SHLVL%{$reset_color%} $LINENUM %{$fg[white]%}%D{%a %b %d %Y}%{$reset_color%} ➤  %(2T.%{$fg_bold[red]%}.%(1T.%{$fg_bold[red]%}.%{$fg[white]%}))%T%{$reset_color%}
-%(2j.%{$fg_bold[red]%}%j .%(1j.%{$fg_bold[yellow]%}%j .))%{$reset_color%}%~ %{$fg_bold[red]%}$(prompt_char)%{$reset_color%}%(?.%{$fg[white]%}✓.%{$fg_bold[red]%}✗)%{$reset_color%} '
+%(2j.%{$fg_bold[red]%}%j .%(1j.%{$fg_bold[yellow]%}%j .))%{$reset_color%}%~ %{$fg_bold[red]%}$(prompt_char)%{$reset_color%}%{$fg_bold[yellow]%}$(virtualenv)%{$reset_color%}%(?.%{$fg[white]%}✓.%{$fg_bold[red]%}✗)%{$reset_color%} '

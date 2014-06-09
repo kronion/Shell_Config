@@ -1,3 +1,6 @@
+# Default editor
+export EDITOR=/usr/local/Cellar/macvim/7.4-72/bin/vim
+
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
 
@@ -6,10 +9,6 @@ export ZSH=$HOME/.oh-my-zsh
 # Optionally, if you set this to "random", it'll load a random theme each
 # time that oh-my-zsh is loaded.
 ZSH_THEME="cstedman"
-
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
 
 # Set to this to use case-sensitive completion
 # CASE_SENSITIVE="true"
@@ -43,34 +42,3 @@ ZSH_THEME="cstedman"
 plugins=(git rvm web-search)
 
 source $ZSH/oh-my-zsh.sh
-
-alias ~='cd ~'
-alias cd..='cd ..'
-alias ..='cd ..'
-alias rc='vim ~/.zshrc'
-alias rcu='. ~/.zshrc'
-alias c='clear'
-alias Code='cd ~/Code'
-alias code='cd ~/Code' 
-alias rm='rm -i'
-alias ll='ls -alth'
-alias mamp='cd /Applications/MAMP/htdocs'
-alias vimrc='vim ~/.vimrc'
-alias ztheme='vim ~/.oh-my-zsh/themes/cstedman.zsh-theme'
-alias todo='~/Code/Shell/todo.sh'
-alias lux='ssh root@nodenexus.com'
-alias Config='cd ~/Code/Shell/config'
-
-# Rename vim tabs
-function vim() {
-  echo -ne "\e]1;vim $@\a"
-  command vim $@
-}
-
-function precmd() {
-  BAT_CHARGE='/Users/cstedman/Code/Shell/batcharge.py'
-  RPROMPTGOAL=${(z)$($BAT_CHARGE 2>/dev/null)}
-  RPROMPT="%{$RPROMPTGOAL[1]%}$RPROMPTGOAL[2]%{$RPROMPTGOAL[3]%}"
-  LINENUM=""
-  for ((i = 0; i < $COLUMNS - 45 - $HOST_LEN; i++)); do LINENUM="${LINENUM}-"; done
-}
