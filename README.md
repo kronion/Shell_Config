@@ -9,6 +9,7 @@ To use these files, you must move them into the appropriate locations on your fi
 * `ztheme` = `~/.oh-my-zsh/themes/cstedman.zsh-theme`
 * `aliases.zsh` = `~/.oh-my-zsh/lib/aliases.zsh`
 * `functions.zsh` = `~/.oh-my-zsh/lib/functions.zsh`
+* `dot_vim` = `~/.vim`
 * `batcharge.py` can go anywhere you want, just correct the path in `functions.zsh`.
 
 `batcharge.py` is a script called by zsh in `precmd()` to generate battery status.
