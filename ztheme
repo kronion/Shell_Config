@@ -1,5 +1,5 @@
 LINENUM=""
-LONG_HOST=$(HOSTNAME)
+LONG_HOST=$(hostname)
 SHORT_HOST=${LONG_HOST[(ws:.:)1]}
 HOST_LEN=${#SHORT_HOST}
 for ((i = 0; i < $COLUMNS - 44 - $HOST_LEN; i++)); do LINENUM="${LINENUM}-"; done
