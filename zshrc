@@ -1,5 +1,5 @@
 # Default editor
-export EDITOR=/usr/local/Cellar/macvim/7.4-72/bin/vim
+export EDITOR=/usr/local/Cellar/macvim/7.4-73_1/bin/vim
 
 # Path to your oh-my-zsh configuration.
 export ZSH=$HOME/.oh-my-zsh
@@ -39,6 +39,6 @@ ZSH_THEME="cstedman"
 # Which plugins would you like to load? (plugins can be found in ~/.oh-my-zsh/plugins/*)
 # Custom plugins may be added to ~/.oh-my-zsh/custom/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
-plugins=(git rvm web-search)
+plugins=(brew git npm rvm sudo web-search)
 
 source $ZSH/oh-my-zsh.sh
