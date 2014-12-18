@@ -7,6 +7,7 @@ set tabstop=2 "tabs = 2 spaces"
 set shiftwidth=2 "indentation = 2 spaces"
 
 "line numbers and cursor position"
+set relativenumber "make line numbers relative to current line"
 set number "display line numbers"
 highlight LineNr ctermfg=white "recolor line numbers"
 set ls=2 "turn on vim status line, necessary in order to see ruler"
