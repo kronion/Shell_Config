@@ -26,8 +26,8 @@ empty = (total_slots - len(filled)) * u'▹'
 out = (filled + empty).encode('utf-8')
 import sys
 
-color_green = "$fg[green]"
-color_yellow = "$fg[yellow]"
+color_green = "$fg_bold[green]"
+color_yellow = "$fg_bold[yellow]"
 color_red = "$fg_bold[red]"
 color_cyan = "$fg_bold[cyan]"
 color_reset = "$reset_color"
