@@ -14,3 +14,6 @@ alias VIM='vim'
 
 # Open Finder at current directory
 alias o='open .'
+
+# Virtualenv
+alias activate='source bin/activate'
