@@ -22,7 +22,14 @@ set pastetoggle=<C-J> "vim autoindent on pasted code"
 set showmode
 
 "copy to clipboard"
+"On Mac OSX (with MacVim)
 set clipboard=unnamed
+"On (Ubuntu) Linux with +xterm_clipboard (sudo apt-get vim-gnome)"
+"set clipboard=unnamedplus
+
+"Recognize *.md files as markdown for syntax highlighting"
+"Warning: Modula files also share this extension"
+au BufRead,BufNewFile *.md set filetype=markdown
 
 syntax enable "do I still need this?"
 
