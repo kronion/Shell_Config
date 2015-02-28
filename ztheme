@@ -14,7 +14,7 @@ function prompt_char {
 }
 
 function virtualenvCheck {
-  if [[ -a .Python ]] || test -n "$VIRTUAL_ENV" ; then
+  if [[ -a bin/activate ]] || test -n "$VIRTUAL_ENV" ; then
     echo "蛇 "
   fi
 }
