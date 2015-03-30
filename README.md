@@ -6,7 +6,7 @@ To use these files, you must move them into the appropriate locations on your fi
 
 * `vimrc` = `~/.vimrc`
 * `zshrc` = `~/.zshrc`
-* `ztheme` = `~/.oh-my-zsh/themes/cstedman.zsh-theme`
+* `ztheme` = `~/.oh-my-zsh/custom/themes/cstedman.zsh-theme`
 * `aliases.zsh` = `~/.oh-my-zsh/custom/aliases.zsh`
 * `functions.zsh` = `~/.oh-my-zsh/custom/functions.zsh`
 * `dot_vim` = `~/.vim`
