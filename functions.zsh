@@ -25,7 +25,7 @@ function precmd() {
 }
 
 #
-# Open the .gitignore in the current directory, or prompt the user to create
+# Open the .gitignore in the current repository, or prompt the user to create
 # one if it does not already exist
 #
 function gitignore() {
@@ -42,6 +42,7 @@ function gitignore() {
       vared -p 'No .gitignore found. Create one? (y/n) ' -c tmp
       if [[ $tmp =~ "^(y|yes)$" ]]; then
         echo ".DS_Store\n*.swp" >> $GIT_CHECK/.gitignore
+        $EDITOR $GIT_CHECK/.gitignore
       else
         false
       fi
