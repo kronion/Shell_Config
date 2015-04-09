@@ -11,20 +11,6 @@ function vim() {
 }
 
 #
-# Precommand which runs before redrawing the prompt
-#
-function precmd() {
-  BAT_CHARGE='/Users/cstedman/Code/Shell/config/batcharge.py'
-  RPROMPTGOAL=${(z)$($BAT_CHARGE 2>/dev/null)}
-  RPROMPT="%{$RPROMPTGOAL[1]%}$RPROMPTGOAL[2]%{$RPROMPTGOAL[3]%}"
-  LINENUM=""
-  for ((i = 0; i < $COLUMNS - 45 - $HOST_LEN; i++)); do LINENUM="${LINENUM}-"; done
-  if test -n "$VIRTUAL_ENV" ; then
-    PROMPT=$_OLD_VIRTUAL_PS1
-  fi
-}
-
-#
 # Open the .gitignore in the current repository, or prompt the user to create
 # one if it does not already exist
 #
@@ -39,7 +25,7 @@ function gitignore() {
       $EDITOR $GIT_CHECK/.gitignore
     else
       local tmp
-      vared -p 'No .gitignore found. Create one? (y/n) ' -c tmp
+      vared -p 'No .gitignore found. Create one? (y/n) ' tmp
       if [[ $tmp =~ "^(y|yes)$" ]]; then
         echo ".DS_Store\n*.swp" >> $GIT_CHECK/.gitignore
         $EDITOR $GIT_CHECK/.gitignore
