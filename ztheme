@@ -27,9 +27,9 @@ function vcsCheck {
 function virtualenvCheck {
   if [[ -a bin/activate ]] || test -n "$VIRTUAL_ENV" ; then
     if test -n "$VIRTUAL_ENV" ; then
-      echo "$fg_bold[yellow]蛇 $reset_color"
+      echo "%{$fg_bold[yellow]%}蛇 %{$reset_color%}"
     else
-      echo "$fg[white]蛇 $reset_color"
+      echo "%{$fg[white]%}蛇 %{$reset_color%}"
     fi
   fi
 }
