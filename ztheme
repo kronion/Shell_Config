@@ -25,7 +25,7 @@ function vcsCheck {
 # Indicate that the CWD contains a python virtualenv (white snake symbol),
 # or that a virtualenv is active (yellow snake symbol)
 function virtualenvCheck {
-  if test -n "$(find . -maxdepth 3 -name 'activate' -print -quit)" || test -n "$VIRTUAL_ENV"; then
+  if test -n "$(find . -maxdepth 3 -name 'activate' -print -quit 2> /dev/null)" || test -n "$VIRTUAL_ENV"; then
   # if [[ -a */bin/activate ]] || test -n "$VIRTUAL_ENV" ; then
     if test -n "$VIRTUAL_ENV" ; then
       echo "%{$fg_bold[yellow]%}蛇 %{$reset_color%}"
