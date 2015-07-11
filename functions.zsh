@@ -14,7 +14,7 @@ function vim() {
 # Open the .gitignore in the current repository, or prompt the user to create
 # one if it does not already exist
 #
-function gitignore() {
+function ignore() {
   setopt local_options no_case_match
   local GIT_CHECK=$(git rev-parse --show-toplevel 2> /dev/null) 
   if ! [[ -n $GIT_CHECK ]]; then
@@ -34,4 +34,18 @@ function gitignore() {
       fi
     fi
   fi
+}
+
+function gitignore() {
+  ignore
+}
+
+#
+# If current directory is the root of a Jekyll blog, open latest blog post for
+# editing
+#
+function latest() {
+  local tmp
+  vared -p 'No .gitignore found. Create one? (y/n) ' tmp
+  echo $tmp
 }
