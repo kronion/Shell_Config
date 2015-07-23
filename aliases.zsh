@@ -6,6 +6,7 @@ alias -- -='cd -'
 alias rc='vim ~/.zshrc'
 alias rcu='. ~/.zshrc'
 alias vimrc='vim ~/.vimrc'
+alias zshenv='vim ~/.zshenv'
 
 # Miscellaneous
 alias c='clear'
