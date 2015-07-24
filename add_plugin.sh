@@ -12,7 +12,7 @@ function getRepoName {
 if [[ $# -ne 2 ]]; then
   usage
 else
+  git checkout $(git symbolic-ref HEAD --short)
   git remote add "$2" "$1"
   git subtree add --prefix dot_vim/bundle/$(getRepoName "$1") "$2" master --squash
-  git checkout $(git symbolic-ref HEAD --short)
 fi
