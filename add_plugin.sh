@@ -14,4 +14,5 @@ if [[ $# -ne 2 ]]; then
 else
   git remote add "$2" "$1"
   git subtree add --prefix dot_vim/bundle/$(getRepoName "$1") "$2" master --squash
+  git checkout $(git symbolic-ref HEAD --short)
 fi
