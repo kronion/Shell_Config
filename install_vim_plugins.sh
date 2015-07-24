@@ -1,6 +1,6 @@
 #!/bin/zsh
 
-if [ -n "$(git status --porcelain)" ]; then
+if [ -n "$(git diff-index HEAD)" ]; then
   echo "Your working directory is not clean. Please commit/revert all changes and rerun."
   exit
 fi
