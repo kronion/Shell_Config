@@ -18,8 +18,9 @@ function precmd() {
 
 # Indicate that the CWD is a git or mercurial repository
 function vcsCheck {
-    git branch >/dev/null 2>/dev/null && echo '± ' && return
-    hg root >/dev/null 2>/dev/null && echo '☿ ' && return
+  local bname="$(git symbolic-ref --short HEAD 2>/dev/null)"
+  [ -n "$bname" ] && echo "± $bname " && return
+  hg root >/dev/null 2>/dev/null && echo '☿ ' && return
 }
 
 # Indicate that the CWD contains a python virtualenv (white snake symbol),
