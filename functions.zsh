@@ -55,20 +55,18 @@ function gitignore() {
 ################################################################################
 
 function pip() {
-  if [[ "$1" == "install" ]]; then
-    if [[ -z "$VIRTUAL_ENV" ]]; then
-      echo "No virtualenv detected. Are you sure you want to install?"
-      select yn in "Yes" "No"; do
-        case $yn in
-          Yes )
-            return $(command pip $@)
-            ;;
-          No )
-            return 1
-            ;;
-        esac
-      done
-    fi
+  if [[ "$1" == "install" && -z "$VIRTUAL_ENV" ]]; then
+    echo "No virtualenv detected. Are you sure you want to install?"
+    select yn in "Yes" "No"; do
+      case $yn in
+        Yes )
+          return $(command pip $@)
+          ;;
+        No )
+          return 1
+          ;;
+      esac
+    done
   else
     command pip $@
   fi
