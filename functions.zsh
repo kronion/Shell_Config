@@ -1,3 +1,7 @@
+################################################################################
+#                                   VIM                                        # 
+################################################################################
+
 #
 # Rename vim tabs and open multiple files with vertical split
 # 
@@ -9,6 +13,11 @@ function vim() {
     $EDITOR $@
   fi
 }
+
+
+################################################################################
+#                                   GIT                                        # 
+################################################################################
 
 #
 # Open the .gitignore in the current repository, or prompt the user to create
@@ -39,6 +48,36 @@ function ignore() {
 function gitignore() {
   ignore
 }
+
+
+################################################################################
+#                                   PIP                                        # 
+################################################################################
+
+function pip() {
+  if [[ "$1" == "install" ]]; then
+    if [[ -z "$VIRTUAL_ENV" ]]; then
+      echo "No virtualenv detected. Are you sure you want to install?"
+      select yn in "Yes" "No"; do
+        case $yn in
+          Yes )
+            return $(command pip $@)
+            ;;
+          No )
+            return 1
+            ;;
+        esac
+      done
+    fi
+  else
+    command pip $@
+  fi
+}
+
+
+################################################################################
+#                                   ETC                                        # 
+################################################################################
 
 #
 # If current directory is the root of a Jekyll blog, open latest blog post for

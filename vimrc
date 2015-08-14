@@ -16,6 +16,9 @@ set colorcolumn=80 "display column for 80 character limit"
 set cursorline "underline the current line of the cursor"
 set so=5 "keep cursor at least 5 lines from edge of window"
 
+"word breaks"
+set iskeyword-=_
+
 "paste mode"
 nnoremap <C-J> :set invpaste paste?<CR>
 set pastetoggle=<C-J> "vim autoindent on pasted code"
