@@ -1,17 +1,12 @@
 ################################################################################
-#                                   VIM                                        # 
+#                                   cURL                                       # 
 ################################################################################
 
 #
-# Rename vim tabs and open multiple files with vertical split
-# 
-function vim() {
-  echo -ne "\e]1;vim $@\a"
-  if [[ $# -ge 2 ]]; then
-    $EDITOR $@ -O
-  else
-    $EDITOR $@
-  fi
+# Pretty-print API JSON responses
+#
+function jcurl() {
+  curl $@ | python -m json.tool | pygmentize -l javascript -f 256 -O style=native
 }
 
 
@@ -60,7 +55,9 @@ function pip() {
     select yn in "Yes" "No"; do
       case $yn in
         Yes )
-          return $(command pip $@)
+          echo "$@"
+          command pip $@
+          return $?
           ;;
         No )
           return 1
@@ -69,6 +66,23 @@ function pip() {
     done
   else
     command pip $@
+  fi
+}
+
+
+################################################################################
+#                                   VIM                                        # 
+################################################################################
+
+#
+# Rename vim tabs and open multiple files with vertical split
+# 
+function vim() {
+  echo -ne "\e]1;vim $@\a"
+  if [[ $# -ge 2 ]]; then
+    $EDITOR $@ -O
+  else
+    $EDITOR $@
   fi
 }
 
