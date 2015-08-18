@@ -1,6 +1,7 @@
 # Basic directory operations
 alias ~='cd ~'
 alias -- -='cd -'
+alias groot='cd $(git rev-parse --show-toplevel)'
 
 # Config shortcuts
 alias rc='vim ~/.zshrc'
