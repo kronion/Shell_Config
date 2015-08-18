@@ -6,7 +6,7 @@
 # Pretty-print API JSON responses
 #
 function jcurl() {
-  curl $@ | python -m json.tool | pygmentize -l javascript -f 256 -O style=native
+  curl -sS $@ | python -m json.tool | pygmentize -l javascript -f 256 -O style=native
 }
 
 
