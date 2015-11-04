@@ -6,3 +6,4 @@ https://github.com/garbas/vim-snipmate.git,snipmate
 https://github.com/honza/vim-snippets.git,snippets
 https://github.com/MarcWeber/vim-addon-mw-utils.git,addon-mw-utils
 https://github.com/tomtom/tlib_vim.git,tlib
+https://github.com/kchmck/vim-coffee-script.git,vim-coffee-script

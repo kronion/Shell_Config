@@ -12,9 +12,13 @@ set number "display line numbers"
 highlight LineNr ctermfg=white "recolor line numbers"
 set ls=2 "turn on vim status line, necessary in order to see ruler"
 set ruler "display line/column coordinates of cursor"
-set colorcolumn=80 "display column for 80 character limit"
+set colorcolumn=120 "display column for 120 character limit"
 set cursorline "underline the current line of the cursor"
 set so=5 "keep cursor at least 5 lines from edge of window"
+
+"search"
+set hlsearch
+nnoremap <silent><CR> :noh<CR><CR>
 
 "word breaks"
 set iskeyword-=_
@@ -23,6 +27,9 @@ set iskeyword-=_
 nnoremap <C-J> :set invpaste paste?<CR>
 set pastetoggle=<C-J> "vim autoindent on pasted code"
 set showmode
+
+"mouse"
+set mouse=a
 
 "copy to clipboard"
 "On Mac OSX (with MacVim)
