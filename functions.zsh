@@ -80,9 +80,13 @@ function pip() {
 function vim() {
   echo -ne "\e]1;vim $@\a"
   if [[ $# -ge 2 ]]; then
-    $EDITOR $@ -O
-  else
-    $EDITOR $@
+    if [[ $(($COLUMNS / 3)) -ge $LINES ]]; then
+      $EDITOR $@ -O
+    else
+      $EDITOR $@ -o
+    fi
+   else
+     $EDITOR $@
   fi
 }
 
