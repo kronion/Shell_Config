@@ -7,7 +7,7 @@ BAT_CHARGE='/Users/cstedman/Code/Shell/config/batcharge.py'
 
 # Precommand which runs before redrawing the prompt
 function precmd() {
-  RPROMPTGOAL=${(z)$($BAT_CHARGE 2>/dev/null)}
+  RPROMPTGOAL=($($BAT_CHARGE 2>/dev/null))
   RPROMPT="%{$RPROMPTGOAL[1]%}$RPROMPTGOAL[2]%{$RPROMPTGOAL[3]%}"
   LINENUM=""
   for ((i = 0; i < $COLUMNS - 45 - $HOST_LEN; i++)); do LINENUM="${LINENUM}-"; done
