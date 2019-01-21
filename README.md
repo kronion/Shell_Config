@@ -32,9 +32,9 @@ Note that this configuration sets vim to be your default editor. You will have t
 ### A Note on Zsh Startup Order
 
 It's important to remember the order in which Zsh startup files will be sourced. You can find details here:
-https://wiki.archlinux.org/index.php/Zsh
+https://wiki.archlinux.org/index.php/Zsh.
 
-Note that OSX provides default `/etc/zshenv`, /etc/zshrc`, and `/etc/profile` files as of 10.12. 
+Note that OSX provides default `/etc/zshenv`, `/etc/zshrc`, and `/etc/profile` files as of 10.12.
 `/etc/zshenv` is particularly notable because it sets the default `$PATH` using `usr/libexec/path_helper`.
 This is problematic because `path_helper` actually _prepends_ to `$PATH`, and `/etc/zshenv` is always sourced in all Zsh
 shells, including subshells. To avoid `$PATH` changes in subshells, move `/etc/zshenv` to `/etc/zprofile`. This ensures
