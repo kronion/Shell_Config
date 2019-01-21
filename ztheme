@@ -11,7 +11,7 @@ function precmd() {
   RPROMPT="%{$RPROMPTGOAL[1]%}$RPROMPTGOAL[2]%{$RPROMPTGOAL[3]%}"
   LINENUM=""
   for ((i = 0; i < $COLUMNS - 45 - $HOST_LEN; i++)); do LINENUM="${LINENUM}-"; done
-  if test -n "$VIRTUAL_ENV" ; then
+  if [[ -n "$VIRTUAL_ENV" && ! -n "$POETRY_ACTIVE" ]]; then
     PROMPT=$_OLD_VIRTUAL_PS1
   fi
 }
