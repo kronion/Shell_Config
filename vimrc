@@ -9,7 +9,6 @@ set shiftwidth=2 "indentation = 2 spaces
 "line numbers and cursor position
 set relativenumber "make line numbers relative to current line
 set number "display line numbers
-highlight LineNr ctermfg=white "recolor line numbers"
 set ls=2 "turn on vim status line, necessary in order to see ruler
 set ruler "display line/column coordinates of cursor
 set colorcolumn=120 "display column for 120 character limit
@@ -57,6 +56,7 @@ Plug 'honza/vim-snippets' "Snippets for a large variety of languages
 Plug 'isRuslan/vim-es6' "ES6 syntax highlighting
 Plug 'kchmck/vim-coffee-script' "Coffeescript syntax highlighting, compiling, linting, etc.
 Plug 'marcweber/vim-addon-mw-utils' "Dependency for vim-snipmate
+Plug 'morhetz/gruvbox'  "Color scheme
 Plug 'scrooloose/nerdtree' "File tree explorer
 Plug 'tomtom/tlib_vim' "Dependency for vim-snipmate
 Plug 'tpope/vim-commentary' "Motions for commenting
@@ -73,7 +73,9 @@ syntax on "Enable syntax highlighting
 filetype plugin indent on
 
 "vim colors"
-set background=dark "syntax highlighting chooses colors for dark backgrounds
+set termguicolors "Required to allow gruvbox to use a larger color palette
+let g:gruvbox_contrast_dark='hard'
+colorscheme gruvbox
 
 "nerdtree"
 "map nerdtree to cntrl n"
