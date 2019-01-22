@@ -50,6 +50,7 @@ endif
 "Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 "Declare the list of plugins.
+Plug 'ambv/black' "Opinionated formatting for Python
 Plug 'editorconfig/editorconfig-vim' "Editorconfig support
 Plug 'garbas/vim-snipmate' "Snippet expansion engine
 Plug 'honza/vim-snippets' "Snippets for a large variety of languages
