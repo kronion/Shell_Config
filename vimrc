@@ -66,6 +66,7 @@ Plug 'tpope/vim-fugitive' "Git commands in vim
 Plug 'Valloric/YouCompleteMe' "Keyword autocompletion
 Plug 'vim-airline/vim-airline' "Better status line
 " Plug 'yonchu/accelerated-smooth-scroll' Now trying out comfortable-motion instead
+Plug 'w0rp/ale'
 Plug 'yuttie/comfortable-motion.vim'
 "List ends here. Plugins become visible to Vim after this call.
 call plug#end()
@@ -80,7 +81,7 @@ colorscheme gruvbox
 
 "nerdtree"
 "map nerdtree to cntrl n"
-map <C-n> :NERDTreeToggle<CR> 
+map <C-n> :NERDTreeToggle<CR>
 
 "You Complete Me"
 let g:ycm_key_list_select_completion = ['<Down>']
@@ -90,3 +91,9 @@ let g:ycm_autoclose_preview_window_after_completion = 1
 "Autocomplete menu"
 highlight Pmenu ctermfg=15 ctermbg=172
 highlight PmenuSel ctermfg=172 ctermbg=8
+
+"ALE
+let g:airline#extensions#ale#enabled = 1
+let g:ale_fixers = {
+\   'python': ['black', 'isort'],
+\}
