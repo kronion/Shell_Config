@@ -99,3 +99,7 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
 \   'python': ['black', 'isort'],
 \}
+
+"vim-terraform
+let g:terraform_fold_sections = 1
+let g:terraform_remap_spacebar = 1
