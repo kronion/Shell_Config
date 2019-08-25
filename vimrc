@@ -53,6 +53,7 @@ call plug#begin('~/.vim/plugged')
 Plug 'ambv/black' "Opinionated formatting for Python
 Plug 'editorconfig/editorconfig-vim' "Editorconfig support
 Plug 'garbas/vim-snipmate' "Snippet expansion engine
+Plug 'hashivim/vim-terraform' "Add terraform helpers and highlighting
 Plug 'honza/vim-snippets' "Snippets for a large variety of languages
 Plug 'isRuslan/vim-es6' "ES6 syntax highlighting
 Plug 'kchmck/vim-coffee-script' "Coffeescript syntax highlighting, compiling, linting, etc.
@@ -62,6 +63,7 @@ Plug 'scrooloose/nerdtree' "File tree explorer
 Plug 'tomtom/tlib_vim' "Dependency for vim-snipmate
 Plug 'tpope/vim-commentary' "Motions for commenting
 Plug 'tpope/vim-fugitive' "Git commands in vim
+Plug 'tpope/vim-surround' "Surround selections with quotes, etc.
 "Plug 'tpope/vim-sensible'
 Plug 'Valloric/YouCompleteMe' "Keyword autocompletion
 Plug 'vim-airline/vim-airline' "Better status line
