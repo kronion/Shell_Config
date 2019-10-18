@@ -99,6 +99,11 @@ let g:airline#extensions#ale#enabled = 1
 let g:ale_fixers = {
 \   'python': ['black', 'isort'],
 \}
+let g:ale_pattern_options = {
+\   '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
+\   '\.bundle\.js$': {'ale_linters': [], 'ale_fixers': []},
+\   '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
+\}
 
 "vim-terraform
 let g:terraform_fold_sections = 1
