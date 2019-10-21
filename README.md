@@ -21,10 +21,6 @@ See [A Note on Zsh Startup Order](README.md#a-note-on-zsh-startup-order) for mor
 
 * `batcharge.py` is a script called by zsh in `precmd()` to generate battery status. It only works on Macbooks.
 * `YCM_setup.sh` is used to download and compile and setup autocompletion for vim. I assume that you've already installed all of the dependencies, particularly MacVim and Clang.
-* `add_plugin.sh` is used to add new vim plugins as git subtrees of this repository. This makes plugin installation as easy as cloning this repository! The syntax is:
-  ```
-  ./add_plugins.sh repository-url repository-nickname
-  ```
 
 Note that this configuration sets vim to be your default editor. You will have to set the correct path to your vim binary in `zshrc`.
 
