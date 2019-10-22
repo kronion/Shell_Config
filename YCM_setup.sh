@@ -1,4 +1,4 @@
 #!/bin/bash
 
-git clone --recursive https://github.com/Valloric/YouCompleteMe.git ./dot_vim/bundle/YouCompleteMe
-./dot_vim/bundle/YouCompleteMe/install.sh --clang-completer --gocode-completer
+# Completion for C-family languages (including Python), Go, and TS + JS
+./dot_vim/plugged/YouCompleteMe/install.py --clang-completer --go-completer --ts-completer
