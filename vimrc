@@ -34,7 +34,7 @@ set mouse=a
 "On Mac OSX (with MacVim)
 set clipboard=unnamed
 "On (Ubuntu) Linux with +xterm_clipboard (sudo apt-get vim-gnome)
-"set clipboard=unnamedplus
+" set clipboard=unnamedplus
 
 "Recognize *.md files as markdown for syntax highlighting
 "Warning: Modula files also share this extension
@@ -57,6 +57,7 @@ Plug 'hashivim/vim-terraform' "Add terraform helpers and highlighting
 Plug 'honza/vim-snippets' "Snippets for a large variety of languages
 Plug 'isRuslan/vim-es6' "ES6 syntax highlighting
 Plug 'kchmck/vim-coffee-script' "Coffeescript syntax highlighting, compiling, linting, etc.
+Plug 'leafgarland/typescript-vim'  "Typescript filetype detection and syntax highlighting
 Plug 'marcweber/vim-addon-mw-utils' "Dependency for vim-snipmate
 Plug 'morhetz/gruvbox'  "Color scheme
 Plug 'scrooloose/nerdtree' "File tree explorer
@@ -78,6 +79,7 @@ filetype plugin indent on
 
 "vim colors"
 set termguicolors "Required to allow gruvbox to use a larger color palette
+set background=dark "gruvbox dark mode
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
