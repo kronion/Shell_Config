@@ -60,6 +60,7 @@ Plug 'kchmck/vim-coffee-script' "Coffeescript syntax highlighting, compiling, li
 Plug 'leafgarland/typescript-vim'  "Typescript filetype detection and syntax highlighting
 Plug 'marcweber/vim-addon-mw-utils' "Dependency for vim-snipmate
 Plug 'morhetz/gruvbox'  "Color scheme
+Plug 'neoclide/coc.nvim', {'branch': 'release'}  "Autocompletion
 Plug 'scrooloose/nerdtree' "File tree explorer
 Plug 'tomtom/tlib_vim' "Dependency for vim-snipmate
 Plug 'tpope/vim-commentary' "Motions for commenting
