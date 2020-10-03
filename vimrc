@@ -36,9 +36,9 @@ set clipboard=unnamed
 "On (Ubuntu) Linux with +xterm_clipboard (sudo apt-get vim-gnome)
 " set clipboard=unnamedplus
 
-"Recognize *.md files as markdown for syntax highlighting
-"Warning: Modula files also share this extension
-autocmd BufRead,BufNewFile *.md set filetype=markdown
+""Recognize *.md files as markdown for syntax highlighting
+""Warning: Modula files also share this extension
+"autocmd BufRead,BufNewFile *.md set filetype=markdown
 
 "Install vim-plug if not already present
 if empty(glob('~/.vim/autoload/plug.vim'))
@@ -56,13 +56,14 @@ Plug 'garbas/vim-snipmate' "Snippet expansion engine
 Plug 'hashivim/vim-terraform' "Add terraform helpers and highlighting
 Plug 'honza/vim-snippets' "Snippets for a large variety of languages
 Plug 'isRuslan/vim-es6' "ES6 syntax highlighting
-Plug 'kchmck/vim-coffee-script' "Coffeescript syntax highlighting, compiling, linting, etc.
-Plug 'leafgarland/typescript-vim'  "Typescript filetype detection and syntax highlighting
+" Plug 'kchmck/vim-coffee-script' "Coffeescript syntax highlighting, compiling, linting, etc.
+" Plug 'leafgarland/typescript-vim'  "Typescript filetype detection and syntax highlighting
 Plug 'marcweber/vim-addon-mw-utils' "Dependency for vim-snipmate
 Plug 'morhetz/gruvbox'  "Color scheme
 Plug 'neoclide/coc.nvim', {'branch': 'release'}  "Autocompletion
-Plug 'peitalin/vim-jsx-typescript'  "TSX filetype detection
+" Plug 'peitalin/vim-jsx-typescript'  "TSX filetype detection
 Plug 'scrooloose/nerdtree' "File tree explorer
+Plug 'sheerun/vim-polyglot'
 Plug 'tomtom/tlib_vim' "Dependency for vim-snipmate
 Plug 'tpope/vim-commentary' "Motions for commenting
 Plug 'tpope/vim-fugitive' "Git commands in vim
