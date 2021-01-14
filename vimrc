@@ -77,14 +77,17 @@ set background=dark "gruvbox dark mode
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
+"airline
+let g:airline_powerline_fonts = 1 "Enable extended font-based symbols
+
 "nerdtree"
 "map nerdtree to cntrl n"
 map <C-n> :NERDTreeToggle<CR>
 
 "You Complete Me"
-let g:ycm_key_list_select_completion = ['<Down>']
-let g:ycm_key_list_previous_completion = ['<Up>']
-let g:ycm_autoclose_preview_window_after_completion = 1
+" let g:ycm_key_list_select_completion = ['<Down>']
+" let g:ycm_key_list_previous_completion = ['<Up>']
+" let g:ycm_autoclose_preview_window_after_completion = 1
 
 "Autocomplete menu"
 highlight Pmenu ctermfg=15 ctermbg=172
