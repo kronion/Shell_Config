@@ -31,10 +31,13 @@ set showmode
 set mouse=a
 
 "copy to clipboard
-"On Mac OSX (with MacVim)
-set clipboard=unnamed
-"On (Ubuntu) Linux with +xterm_clipboard (sudo apt-get vim-gnome)
-" set clipboard=unnamedplus
+if has("macunix")
+  "On MacOS (with MacVim)
+  set clipboard=unnamed
+else
+  "On (Ubuntu) Linux with +xterm_clipboard (sudo apt-get vim-gnome)
+  set clipboard=unnamedplus
+endif
 
 "Install vim-plug if not already present
 if empty(glob('~/.vim/autoload/plug.vim'))
