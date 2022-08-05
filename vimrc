@@ -93,8 +93,10 @@ map <C-n> :NERDTreeToggle<CR>
 " let g:ycm_autoclose_preview_window_after_completion = 1
 
 "Autocomplete menu"
-highlight Pmenu ctermfg=15 ctermbg=172
-highlight PmenuSel ctermfg=172 ctermbg=8
+" TODO delete if these are no longer needed
+" In most contexts gui colors will be used over cterm colors
+" highlight Pmenu ctermfg=15 ctermbg=172
+" highlight PmenuSel ctermfg=172 ctermbg=8
 
 "ALE
 let g:airline#extensions#ale#enabled = 1
