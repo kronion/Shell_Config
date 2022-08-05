@@ -1,5 +1,5 @@
-"backspace
-set backspace=2
+"backspace behavior
+set backspace=2 "equivalent to indent,eol,start
 
 "tabs and indentation
 set expandtab "tabs to spaces
@@ -46,21 +46,30 @@ if empty(glob('~/.vim/autoload/plug.vim'))
   autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
 endif
 
+" Helper utility for conditional loading of plugins
+function! Cond(cond, ...)
+  let opts = get(a:000, 0, {})
+  return a:cond ? opts : extend(opts, { 'on': [], 'for': [] })
+endfunction
+
 "Plugins will be downloaded under the specified directory.
 call plug#begin('~/.vim/plugged')
 "Declare the list of plugins.
 Plug 'ambv/black' "Opinionated formatting for Python
 Plug 'editorconfig/editorconfig-vim' "Editorconfig support
 Plug 'garbas/vim-snipmate' "Snippet expansion engine
+Plug 'github/copilot.vim', Cond(has('nvim-0.6')) "gpt3 code completion (requires nvim 0.6+)
 Plug 'hashivim/vim-terraform' "Add terraform helpers and highlighting
 Plug 'honza/vim-snippets' "Snippets for a large variety of languages
 Plug 'marcweber/vim-addon-mw-utils' "Dependency for vim-snipmate
 Plug 'morhetz/gruvbox'  "Color scheme
-Plug 'neoclide/coc.nvim', {'branch': 'release'}  "Autocompletion
+Plug 'neoclide/coc.nvim', Cond(has('nvim'), {'branch': 'release'})  "Autocompletion
 Plug 'scrooloose/nerdtree' "File tree explorer
 Plug 'sheerun/vim-polyglot'
+Plug 'peitalin/vim-jsx-typescript'  "TSX filetype detection
+Plug 'tomtom/tcomment_vim' "Motions for commenting
 Plug 'tomtom/tlib_vim' "Dependency for vim-snipmate
-Plug 'tpope/vim-commentary' "Motions for commenting
+" Plug 'tpope/vim-commentary' "Motions for commenting
 Plug 'tpope/vim-fugitive' "Git commands in vim
 Plug 'tpope/vim-surround' "Surround selections with quotes, etc.
 "Plug 'tpope/vim-sensible'
@@ -68,20 +77,40 @@ Plug 'vim-airline/vim-airline' "Better status line
 " Plug 'yonchu/accelerated-smooth-scroll' Now trying out comfortable-motion instead
 Plug 'w0rp/ale'
 Plug 'yuttie/comfortable-motion.vim'
+" Plug 'kyazdani42/nvim-web-devicons', Cond(has('nvim')) " Colored icon support in neovim
+" Plug 'akinsho/bufferline.nvim', Cond(has('nvim-0.7'), { 'tag': 'v2.*' })  " Tab and buffer line (requires nvim 0.7+)
 "List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 syntax on "Enable syntax highlighting
 filetype plugin indent on
 
+" From gruvbox docs: https://github.com/morhetz/gruvbox/wiki/Terminal-specific
+"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
+"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
+"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
+if (empty($TMUX))
+  if (has("nvim"))
+    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
+    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
+  endif
+  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
+  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
+  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
+  if (has("termguicolors"))
+    set termguicolors
+  endif
+endif
+
 "vim colors"
-set termguicolors "Required to allow gruvbox to use a larger color palette
 set background=dark "gruvbox dark mode
+let g:gruvbox_guisp_fallback="bg"
+let g:gruvbox_italic=1
 let g:gruvbox_contrast_dark='hard'
 colorscheme gruvbox
 
 "airline
-let g:airline_powerline_fonts = 1 "Enable extended font-based symbols
+let g:airline_powerline_fonts=1 "Enable extended font-based symbols
 
 "nerdtree"
 "map nerdtree to cntrl n"
@@ -93,22 +122,20 @@ map <C-n> :NERDTreeToggle<CR>
 " let g:ycm_autoclose_preview_window_after_completion = 1
 
 "Autocomplete menu"
-" TODO delete if these are no longer needed
-" In most contexts gui colors will be used over cterm colors
 " highlight Pmenu ctermfg=15 ctermbg=172
 " highlight PmenuSel ctermfg=172 ctermbg=8
 
 "ALE
-let g:airline#extensions#ale#enabled = 1
-let g:ale_fixers = {
+let g:airline#extensions#ale#enabled=1
+let g:ale_fixers={
 \   'python': ['black', 'isort'],
 \}
-let g:ale_pattern_options = {
+let g:ale_pattern_options={
 \   '\.min\.css$': {'ale_linters': [], 'ale_fixers': []},
 \   '\.bundle\.js$': {'ale_linters': [], 'ale_fixers': []},
 \   '\.min\.js$': {'ale_linters': [], 'ale_fixers': []},
 \}
 
 "vim-terraform
-let g:terraform_fold_sections = 1
-let g:terraform_remap_spacebar = 1
+let g:terraform_fold_sections=1
+let g:terraform_remap_spacebar=1
