@@ -1,11 +1,12 @@
-"Connect LSP servers (and enable keymappings)
-"See https://github.com/neovim/nvim-lspconfig
-" lua << EOF
-" require'lspconfig'.pyright.setup{}
-" require'lspconfig'.tsserver.setup{}
-" EOF
+--[[
+-- Connect LSP servers (and enable keymappings)
+-- See https://github.com/neovim/nvim-lspconfig
+-- lua << EOF
+-- require'lspconfig'.pyright.setup{}
+-- require'lspconfig'.tsserver.setup{}
+-- EOF
+-- ]]
 
-lua << EOF
 local nvim_lsp = require('lspconfig')
 
 -- Use an on_attach function to only map the following keys
@@ -55,4 +56,3 @@ end
 
 -- Make a global nvim diagnostic configuration change to show the source of a diagnostic message
 vim.diagnostic.config({ virtual_text = { source = true }})
-EOF

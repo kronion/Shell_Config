@@ -4,4 +4,6 @@ source ~/.vimrc
 
 " runtime command sources files found within runtimepaths only
 runtime coc_config.vim
-runtime lsp_config.vim
+runtime lsp_config.lua
+runtime telescope_config.lua
+runtime treesitter_config.lua

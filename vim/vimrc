@@ -57,14 +57,18 @@ call plug#begin('~/.vim/plugged')
 "Declare the list of plugins.
 Plug 'ambv/black' "Opinionated formatting for Python
 Plug 'editorconfig/editorconfig-vim' "Editorconfig support
+Plug 'ellisonleao/gruvbox.nvim', Cond(has('nvim'))  " Gruvbox color scheme for neovim
 Plug 'garbas/vim-snipmate' "Snippet expansion engine
-Plug 'github/copilot.vim', Cond(has('nvim-0.6')) "gpt3 code completion (requires nvim 0.6+)
+" Plug 'github/copilot.vim', Cond(has('nvim-0.6')) "gpt3 code completion (requires nvim 0.6+)
 Plug 'hashivim/vim-terraform' "Add terraform helpers and highlighting
 Plug 'honza/vim-snippets' "Snippets for a large variety of languages
 Plug 'marcweber/vim-addon-mw-utils' "Dependency for vim-snipmate
-Plug 'morhetz/gruvbox'  "Color scheme
+Plug 'morhetz/gruvbox', Cond(!has('nvim'))  " Gruvbox color scheme for vanilla vim
 Plug 'neoclide/coc.nvim', Cond(has('nvim'), {'branch': 'release'})  "Autocompletion
 Plug 'neovim/nvim-lspconfig', Cond(has('nvim'))  "Enables Neovim LSP
+Plug 'nvim-lua/plenary.nvim', Cond(has('nvim'))  " Dependency of telescope.nvim
+Plug 'nvim-telescope/telescope.nvim', Cond(has('nvim'), { 'tag': '0.1.0' })
+Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim'), {'do': ':TSUpdate'})
 Plug 'scrooloose/nerdtree' "File tree explorer
 Plug 'sheerun/vim-polyglot'
 Plug 'peitalin/vim-jsx-typescript'  "TSX filetype detection
