@@ -107,11 +107,14 @@ if (empty($TMUX))
     set termguicolors
   endif
 endif
-set background=dark "gruvbox dark mode
-let g:gruvbox_guisp_fallback="bg"
-let g:gruvbox_italic=1
-let g:gruvbox_contrast_dark='hard'
-colorscheme gruvbox
+if (!has("nvim"))
+  " Similar configuration is done in lua for neovim
+  set background=dark "gruvbox dark mode
+  let g:gruvbox_guisp_fallback="bg"
+  let g:gruvbox_italic=1
+  let g:gruvbox_contrast_dark='hard'
+  colorscheme gruvbox
+endif
 
 "airline
 let g:airline_powerline_fonts=1 "Enable extended font-based symbols
