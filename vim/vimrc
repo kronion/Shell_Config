@@ -36,6 +36,7 @@ if has("macunix")
   set clipboard=unnamed
 else
   "On (Ubuntu) Linux with +xterm_clipboard (sudo apt-get vim-gnome)
+  "Or neovim with xclip (apt install xclip)
   set clipboard=unnamedplus
 endif
 
@@ -59,9 +60,10 @@ Plug 'ambv/black' "Opinionated formatting for Python
 Plug 'editorconfig/editorconfig-vim' "Editorconfig support
 Plug 'ellisonleao/gruvbox.nvim', Cond(has('nvim'))  " Gruvbox color scheme for neovim
 Plug 'garbas/vim-snipmate' "Snippet expansion engine
-" Plug 'github/copilot.vim', Cond(has('nvim-0.6')) "gpt3 code completion (requires nvim 0.6+)
+Plug 'github/copilot.vim', Cond(has('nvim-0.6')) "gpt3 code completion (requires nvim 0.6+)
 Plug 'hashivim/vim-terraform' "Add terraform helpers and highlighting
 Plug 'honza/vim-snippets' "Snippets for a large variety of languages
+Plug 'jackMort/ChatGPT.nvim', Cond(has('nvim')) "gpt chat interface
 Plug 'marcweber/vim-addon-mw-utils' "Dependency for vim-snipmate
 Plug 'morhetz/gruvbox', Cond(!has('nvim'))  " Gruvbox color scheme for vanilla vim
 Plug 'neoclide/coc.nvim', Cond(has('nvim'), {'branch': 'release'})  "Autocompletion
@@ -78,6 +80,7 @@ Plug 'tomtom/tlib_vim' "Dependency for vim-snipmate
 Plug 'tpope/vim-fugitive' "Git commands in vim
 Plug 'tpope/vim-surround' "Surround selections with quotes, etc.
 "Plug 'tpope/vim-sensible'
+Plug 'williamboman/mason.nvim', Cond(has('nvim'))  " Neovim package manager, primarily used for pyright installation
 Plug 'vim-airline/vim-airline' "Better status line
 " Plug 'yonchu/accelerated-smooth-scroll' Now trying out comfortable-motion instead
 Plug 'w0rp/ale'

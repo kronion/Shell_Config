@@ -6,5 +6,6 @@ source ~/.vimrc
 runtime coc_config.vim
 runtime gruvbox_config.lua
 runtime lsp_config.lua
+runtime mason_config.lua
 runtime telescope_config.lua
 runtime treesitter_config.lua
