@@ -1,4 +1,4 @@
-require'nvim-treesitter.configs'.setup {
+local treesitter_config = {
   -- A list of parser names, or "all"
   ensure_installed = {
       "comment",
@@ -47,8 +47,16 @@ require'nvim-treesitter.configs'.setup {
 -- Enable treesitter-based line folding, see:
 -- https://neovim.io/doc/user/fold.html
 -- https://www.jmaguire.tech/posts/treesitter_folding/
-local vim = vim
-local opt = vim.opt
-opt.foldmethod = "expr"
-opt.foldexpr = "nvim_treesitter#foldexpr()"
--- opt.foldenable = false
+vim.opt.foldmethod = "expr"
+vim.opt.foldexpr = "nvim_treesitter#foldexpr()"
+vim.opt.foldlevelstart = 99  -- Start with folds open
+
+return {
+  "nvim-treesitter/nvim-treesitter",
+  build = ":TSUpdate",
+  config = function()
+    local configs = require("nvim-treesitter.configs")
+
+    configs.setup(treesitter_config)
+  end
+}

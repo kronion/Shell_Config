@@ -1,20 +1,3 @@
-"backspace behavior
-set backspace=2 "equivalent to indent,eol,start
-
-"tabs and indentation
-set expandtab "tabs to spaces
-set tabstop=2 "tabs = 2 spaces
-set shiftwidth=2 "indentation = 2 spaces
-
-"line numbers and cursor position
-set relativenumber "make line numbers relative to current line
-set number "display line numbers
-set ls=2 "turn on vim status line, necessary in order to see ruler
-set ruler "display line/column coordinates of cursor
-set colorcolumn=120 "display column for 120 character limit
-set cursorline "underline the current line of the cursor
-set so=5 "keep cursor at least 5 lines from edge of window
-
 "search
 set hlsearch
 nnoremap <silent><CR> :noh<CR><CR>
@@ -24,21 +7,8 @@ set iskeyword-=_
 
 "paste mode
 nnoremap <C-J> :set invpaste paste?<CR>
-set pastetoggle=<C-J> "vim autoindent on pasted code
+"set pastetoggle=<C-J> "vim autoindent on pasted code
 set showmode
-
-"mouse
-set mouse=a
-
-"copy to clipboard
-if has("macunix")
-  "On MacOS (with MacVim)
-  set clipboard=unnamed
-else
-  "On (Ubuntu) Linux with +xterm_clipboard (sudo apt-get vim-gnome)
-  "Or neovim with xclip (apt install xclip)
-  set clipboard=unnamedplus
-endif
 
 "Install vim-plug if not already present
 let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
@@ -57,67 +27,29 @@ endfunction
 call plug#begin('~/.vim/plugged')
 "Declare the list of plugins.
 Plug 'ambv/black' "Opinionated formatting for Python
-Plug 'editorconfig/editorconfig-vim' "Editorconfig support
-Plug 'ellisonleao/gruvbox.nvim', Cond(has('nvim'))  " Gruvbox color scheme for neovim
 Plug 'garbas/vim-snipmate' "Snippet expansion engine
 Plug 'github/copilot.vim', Cond(has('nvim-0.6')) "gpt3 code completion (requires nvim 0.6+)
-Plug 'hashivim/vim-terraform' "Add terraform helpers and highlighting
 Plug 'honza/vim-snippets' "Snippets for a large variety of languages
 Plug 'jackMort/ChatGPT.nvim', Cond(has('nvim')) "gpt chat interface
 Plug 'marcweber/vim-addon-mw-utils' "Dependency for vim-snipmate
-Plug 'morhetz/gruvbox', Cond(!has('nvim'))  " Gruvbox color scheme for vanilla vim
 Plug 'neoclide/coc.nvim', Cond(has('nvim'), {'branch': 'release'})  "Autocompletion
-Plug 'neovim/nvim-lspconfig', Cond(has('nvim'))  "Enables Neovim LSP
 Plug 'nvim-lua/plenary.nvim', Cond(has('nvim'))  " Dependency of telescope.nvim
 Plug 'nvim-telescope/telescope.nvim', Cond(has('nvim'), { 'tag': '0.1.0' })
-Plug 'nvim-treesitter/nvim-treesitter', Cond(has('nvim'), {'do': ':TSUpdate'})
 Plug 'scrooloose/nerdtree' "File tree explorer
 Plug 'sheerun/vim-polyglot'
-Plug 'peitalin/vim-jsx-typescript'  "TSX filetype detection
-Plug 'tomtom/tcomment_vim' "Motions for commenting
 Plug 'tomtom/tlib_vim' "Dependency for vim-snipmate
 " Plug 'tpope/vim-commentary' "Motions for commenting
-Plug 'tpope/vim-fugitive' "Git commands in vim
 Plug 'tpope/vim-surround' "Surround selections with quotes, etc.
 "Plug 'tpope/vim-sensible'
 Plug 'williamboman/mason.nvim', Cond(has('nvim'))  " Neovim package manager, primarily used for pyright installation
 Plug 'vim-airline/vim-airline' "Better status line
-" Plug 'yonchu/accelerated-smooth-scroll' Now trying out comfortable-motion instead
 Plug 'w0rp/ale'
-Plug 'yuttie/comfortable-motion.vim'
-" Plug 'kyazdani42/nvim-web-devicons', Cond(has('nvim')) " Colored icon support in neovim
 " Plug 'akinsho/bufferline.nvim', Cond(has('nvim-0.7'), { 'tag': 'v2.*' })  " Tab and buffer line (requires nvim 0.7+)
 "List ends here. Plugins become visible to Vim after this call.
 call plug#end()
 
 syntax on "Enable syntax highlighting
 filetype plugin indent on
-
-"vim colors"
-" From gruvbox docs: https://github.com/morhetz/gruvbox/wiki/Terminal-specific
-"Use 24-bit (true-color) mode in Vim/Neovim when outside tmux.
-"If you're using tmux version 2.2 or later, you can remove the outermost $TMUX check and use tmux's 24-bit color support
-"(see < http://sunaku.github.io/tmux-24bit-color.html#usage > for more information.)
-if (empty($TMUX))
-  if (has("nvim"))
-    "For Neovim 0.1.3 and 0.1.4 < https://github.com/neovim/neovim/pull/2198 >
-    let $NVIM_TUI_ENABLE_TRUE_COLOR=1
-  endif
-  "For Neovim > 0.1.5 and Vim > patch 7.4.1799 < https://github.com/vim/vim/commit/61be73bb0f965a895bfb064ea3e55476ac175162 >
-  "Based on Vim patch 7.4.1770 (`guicolors` option) < https://github.com/vim/vim/commit/8a633e3427b47286869aa4b96f2bfc1fe65b25cd >
-  " < https://github.com/neovim/neovim/wiki/Following-HEAD#20160511 >
-  if (has("termguicolors"))
-    set termguicolors
-  endif
-endif
-if (!has("nvim"))
-  " Similar configuration is done in lua for neovim
-  set background=dark "gruvbox dark mode
-  let g:gruvbox_guisp_fallback="bg"
-  let g:gruvbox_italic=1
-  let g:gruvbox_contrast_dark='hard'
-  colorscheme gruvbox
-endif
 
 "airline
 let g:airline_powerline_fonts=1 "Enable extended font-based symbols
